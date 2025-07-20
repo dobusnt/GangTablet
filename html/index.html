@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gang Tablet</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <!-- Tablet root (hidden until Lua tells it to show) -->
+  <div id="tablet-ui" class="hidden">
+
+    <!-- bezel – non‑interactive PNGs -->
+    <img class="tablet-frame" src="img/tablet-frame.png" alt="tablet frame"/>
+
+    <!-- SCREEN – every interactive PNG element is in here -->
+    <div class="screen" data-bg="gang">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <button class="icon-btn active" data-screen="jobs">
+          <img src="img/ic-briefcase.png" alt=""/>
+        </button>
+        <button class="icon-btn" data-screen="apps">
+          <img src="img/ic-grid.png" alt=""/>
+        </button>
+        <button class="icon-btn" data-screen="settings">
+          <img src="img/ic-cog.png" alt=""/>
+        </button>
+      </aside>
+
+      <!-- MAIN PANE (contains sub‑panes) -->
+      <section class="main">
+
+        <!-- HEADER BAR -->
+        <div class="header">
+          <h2>Gang Tablet</h2>
+          <button id="close-btn">✕</button>
+        </div>
+
+        <!-- ────── JOBS pane (default) -->
+        <div id="jobs-screen" class="pane">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="jobs">Jobs</button>
+            <button class="tab-btn" data-tab="other">Rewards</button> <!-- other = rewards btw -->
+          </div>
+
+          <div id="jobs" class="tab-content">
+            <ul id="jobs-list"></ul>
+          </div>
+          <!-- ────── other = rewards btw -->
+          <div id="other" class="tab-content hidden">
+            <p class="coming-soon">Other gang features coming soon…</p>
+          </div>
+        </div>
+
+        <!-- ────── APPS pane -->
+        <div id="apps-screen" class="pane hidden">
+          <p class="coming-soon">App launcher placeholder (map, black‑market shop, etc.)</p>
+        </div>
+
+        <!-- ────── SETTINGS pane -->
+        <div id="settings-screen" class="pane hidden">
+          <h3>Appearance</h3>
+          <div class="bg-picker">
+            <label><input type="radio" name="bg" value="dark"  checked> Dark</label>
+            <label><input type="radio" name="bg" value="gang"> Gang Art</label>
+            <label><input type="radio" name="bg" value="gang2"> Gang #2</label>
+          </div>
+
+          <h3>Sound</h3>
+          <label>Volume <input type="range" min="0" max="100" id="vol"></label>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
